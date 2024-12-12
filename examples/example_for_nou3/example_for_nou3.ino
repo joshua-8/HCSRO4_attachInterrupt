@@ -1,4 +1,6 @@
 /**
+   this code for reading distance from an HCSRO4 sensor uses attachInterrupt() to measure echos without long delays in the code
+
    example code for reading from an HC-SRO4 using an Alfredo Systems NoU3
 
    wiring an NoU3 to a HC-SRO4
@@ -38,5 +40,4 @@ void loop() {
     Serial.println(distanceSensor1.getDistance());
   }
 }
-
 
