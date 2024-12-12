@@ -156,7 +156,6 @@ class HCSRO4 : public Interruptable {
     }
     void callback() { // ISR
       if (waitingForEcho) {
-        waitingForEcho = false;
         if (digitalRead(echoPin) == HIGH) {
           microsWhenRise = micros();
           echoPulseHigh = true;
@@ -165,6 +164,7 @@ class HCSRO4 : public Interruptable {
           highTime = microsWhenFall - microsWhenRise;
           echoPulseHigh = false;
           justGotReading = true;
+          waitingForEcho = false;
         }
       }
     }
