@@ -14,7 +14,7 @@
 
 
 #include <Arduino.h>
-#include "HCSRO4.h"
+#include <HCSRO4.h>
 
 const int PIN_SERVO_1 = 4;
 const int PIN_SERVO_2 = 5;
@@ -23,7 +23,7 @@ const int PIN_SERVO_4 = 7;
 const int PIN_SERVO_5 = 8;
 const int PIN_SERVO_6 = 9;
 
-//trig pin, echo pin, distanceMultiplier (1.0/148 for inch, 1.0/58 for cm),  (optional, default 20us) maxTimeToWaitForEcho (ms),  (optional) delayAfterReading(60ms recommended)
+//trig pin, echo pin (must be interrupt capable), distanceMultiplier (1.0/148 for inch, 1.0/58 for cm),  (optional, default 20us) maxTimeToWaitForEcho (ms),  (optional) delayAfterReading(60ms recommended)
 HCSRO4 distanceSensor1 = HCSRO4(PIN_SERVO_1, PIN_SERVO_2, 1.0 / 58);
 
 void setup() {
