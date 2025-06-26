@@ -3,7 +3,7 @@
 */
 #ifndef H_HCSRO4_ATTACH_INTERRUPT_LIB_H
 #define H_HCSRO4_ATTACH_INTERRUPT_LIB_H
-#define NUM_ISRS 8
+#define NUM_HCSRO4_ISRS 8
 // a workaround to let a class use attachInterrupts()
 class Interruptable {
   public:
@@ -38,9 +38,9 @@ void ISR8() {
   isrManager(8);
 }
 
-void (*isrArrayVoids[NUM_ISRS])(void) = { &ISR0, &ISR1, &ISR2, &ISR3, &ISR4, &ISR5, &ISR6, &ISR7};
-boolean isrArrayElementAssigned[NUM_ISRS] = { false, false, false, false, false, false, false, false};
-Interruptable* isrArrayComponents[NUM_ISRS] = { nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr};
+void (*isrArrayVoids[NUM_HCSRO4_ISRS])(void) = { &ISR0, &ISR1, &ISR2, &ISR3, &ISR4, &ISR5, &ISR6, &ISR7};
+boolean isrArrayElementAssigned[NUM_HCSRO4_ISRS] = { false, false, false, false, false, false, false, false};
+Interruptable* isrArrayComponents[NUM_HCSRO4_ISRS] = { nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr};
 
 void isrManager(byte i)
 {
@@ -51,7 +51,7 @@ void isrManager(byte i)
 
 boolean isrManagerClaimPointer(void (**func)(void), int* pointerIndex, Interruptable* component)
 {
-  for (int i = 0; i < NUM_ISRS; i++) {
+  for (int i = 0; i < NUM_HCSRO4_ISRS; i++) {
     if (isrArrayElementAssigned[i] == false) {
       isrArrayElementAssigned[i] = true;
       *func = isrArrayVoids[i];
