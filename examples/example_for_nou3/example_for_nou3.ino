@@ -14,7 +14,7 @@
 
 
 #include <Arduino.h>
-#include <HCSRO4.h>
+#include <HCSRO4_attachInterrupt.h>
 
 const int PIN_SERVO_1 = 4;
 const int PIN_SERVO_2 = 5;
