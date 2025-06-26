@@ -17,4 +17,4 @@ jobs:
         with:
           compliance: strict
           project-type: all
-          library-manager: submit #update
+          library-manager: update
